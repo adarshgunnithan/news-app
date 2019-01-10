@@ -1,0 +1,10 @@
+<span> {{news.title}}</span>
+<h4 mat-dialog-title>{{news.title}}</h4>
+<div mat-dialog-content>
+
+  <p><img class="movie-image" mat-card-image [src]="news?.urlToImage" [alt]="news?.title"></p>
+  <p> {{news?.description}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="true" class="close">Close</button>
+</div>

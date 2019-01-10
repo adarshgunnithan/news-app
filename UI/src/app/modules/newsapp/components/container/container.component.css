@@ -1,0 +1,10 @@
+.movie-container{
+    margin: auto;
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100vh;
+    overflow-x: auto;
+
+}

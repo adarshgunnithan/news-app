@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <span>News Application</span>
+  <!-- admin menu starts here -->
+  <span *ngIf="authService.isLoggedIn()">
+    <span *ngIf="authService.isAdmin()">
+  <button mat-button [routerLink]="['./news/allnews']" >All news</button>
+  <button mat-button [routerLink]="['./news/appnews']" class="appnews">App news</button>
+</span>
+<span *ngIf="!authService.isAdmin()">
+<button mat-button [routerLink]="['./news/appnews']" class="appnews">App news</button>
+<button mat-button [routerLink]="['./news/watchlist']" class="watchlist">WatchList</button>
+<button  mat-button [routerLink]="['./news/search']" class="search-button">Search</button>
+</span>
+<button mat-buton (click)="Logout()" class="logout">Logout</button>
+</span>
+<!-- {{authService.isAdmin()}} -->
+<!-- admin menu ends here -->
+  </mat-toolbar>
+  <router-outlet></router-outlet>

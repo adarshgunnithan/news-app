@@ -1,0 +1,4 @@
+
+<div class="movie-container">
+  <newsapp-thumbnail *ngFor="let news of newslist" [news]="news" (addNewsEvent)="addNews($event)" (deleteNewsEvent)="deleteNews($event)"></newsapp-thumbnail>
+  </div>

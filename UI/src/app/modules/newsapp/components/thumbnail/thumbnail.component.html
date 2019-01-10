@@ -1,0 +1,26 @@
+
+<mat-card class="movie-thumbnail">
+
+  <mat-card-header>
+      <mat-card-title>
+          {{ (news?.title.length>33)? (news?.title | slice:0:33)+'..':(news?.title) }}
+      </mat-card-title>
+      <mat-card-subtitle>{{news?.publishedAt}}</mat-card-subtitle>
+  </mat-card-header>
+  <img class="movie-image" mat-card-image [src]="news?.urlToImage" [alt]="news?.title">
+ 
+  <mat-card-content class="movie-overview"> 
+      {{news?.description}}
+  </mat-card-content>
+
+  <mat-card-actions class="movie-actions" *ngIf="!authService.isAdmin()">
+      <button *ngIf="!(this.router.url == '/news/watchlist')" mat-button color="primary" (click)="addNews()" class="addButton">Add</button>
+       <button *ngIf="!(this.router.url == '/news/appnews' || this.router.url == '/news/search')" mat-button class="deleteButton" color="primary" (click)="deleteNews()">Delete</button>
+       <button mat-button color="primary" (click)="viewDetails ()">View Details</button>
+    </mat-card-actions>
+   <mat-card-actions class="movie-actions" *ngIf="authService.isAdmin()">
+      <button *ngIf="this.router.url == '/news/allnews'" mat-button color="primary" (click)="addNews()" class="addButton">Add</button>
+       <button *ngIf="this.router.url == '/news/appnews'" mat-button color="primary" (click)="deleteNews()" class="deleteButton">Delete</button>
+       <button mat-button color="primary" (click)="viewDetails ()" class="viewdetail">View Details</button>
+    </mat-card-actions>
+</mat-card>
